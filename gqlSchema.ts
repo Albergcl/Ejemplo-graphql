@@ -13,6 +13,8 @@ export const schema = `#graphql
     pet(id: ID!): Pet!
   }
   type Mutation {
+    getAllPets(): [Pet!]!
+    getPetByBreed(breed: String!): [Pet!]!
     addPet(id: ID!, name: String!, breed: String!): Pet!
     deletePet(id: ID!): Pet!
     updatePet(id: ID!, name: String!, breed: String!): Pet!
