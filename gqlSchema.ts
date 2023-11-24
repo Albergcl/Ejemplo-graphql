@@ -11,6 +11,7 @@ export const schema = `#graphql
   type Query {
     pets(breed: String): [Pet!]! 
     pet(id: ID!): Pet!
+    petByBreed(breed: String!): [Pet!]!
   }
   type Mutation {
     getAllPets(): [Pet!]!
