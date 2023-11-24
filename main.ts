@@ -12,16 +12,14 @@ const env = await load();
 const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL");
 
 if (!MONGO_URL) {
-    console.log("No mongo URL found");
-    Deno.exit(1);
+    throw new Error("No mongo URL found");
   }
   
   try {
     await mongoose.connect(MONGO_URL);
     console.log("Connected to MongoDB Atlas");
   } catch (error) {
-    console.error("Error connecting to MongoDB Atlas:", error);
-    Deno.exit(1);
+    throw new Error("Error connecting to MongoDB Atlas:", error);
   }
 
 const resolvers = {
